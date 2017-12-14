@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClienteEnlaza.Login">
+    <ContentPage.Content>
+        <Grid BackgroundColor="Blue">
+            <StackLayout
+                Padding="20,20,20,20"
+                BackgroundColor="White"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+                <Image 
+                    Source=""
+                    VerticalOptions="Start" 
+                    HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

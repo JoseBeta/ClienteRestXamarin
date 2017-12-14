@@ -1,0 +1,7 @@
+C:\Users\AlumnoTarde\source\repos\ClienteEnlaza\ClienteEnlaza\ClienteEnlaza\obj\Debug\ClienteEnlaza.csprojResolveAssemblyReference.cache
+C:\Users\AlumnoTarde\source\repos\ClienteEnlaza\ClienteEnlaza\ClienteEnlaza\obj\Debug\ClienteEnlaza.csproj.CoreCompileInputs.cache
+C:\Users\AlumnoTarde\source\repos\ClienteEnlaza\ClienteEnlaza\ClienteEnlaza\obj\Debug\ClienteEnlaza.MainPage.xaml.g.cs
+C:\Users\AlumnoTarde\source\repos\ClienteEnlaza\ClienteEnlaza\ClienteEnlaza\obj\Debug\ClienteEnlaza.App.xaml.g.cs
+C:\Users\AlumnoTarde\source\repos\ClienteEnlaza\ClienteEnlaza\ClienteEnlaza\obj\Debug\ClienteEnlaza.Entidades.Vuelo.xaml.g.cs
+C:\Users\AlumnoTarde\source\repos\ClienteEnlaza\ClienteEnlaza\ClienteEnlaza\obj\Debug\ClienteEnlaza.Entidades.Reserva.xaml.g.cs
+C:\Users\AlumnoTarde\source\repos\ClienteEnlaza\ClienteEnlaza\ClienteEnlaza\obj\Debug\ClienteEnlaza.Entidades.Usuario.xaml.g.cs
