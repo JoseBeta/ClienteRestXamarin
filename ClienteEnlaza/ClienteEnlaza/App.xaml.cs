@@ -9,11 +9,14 @@ namespace ClienteEnlaza
 {
     public partial class App : Application
     {
+        internal static object usuarioLogeado;
+
         public App()
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new ClienteEnlaza.MainPage());
+            Usuario usuarioLogeado = new Usuario();
         }
 
         protected override void OnStart()

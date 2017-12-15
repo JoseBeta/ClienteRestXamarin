@@ -3,14 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ClienteEnlaza.Login">
     <ContentPage.Content>
-        <Grid BackgroundColor="Blue">
+        <Grid 
+            x:Name="grid"
+            BackgroundColor="DeepSkyBlue">
             <StackLayout
+                x:Name="layoutNombre"
                 Padding="20,20,20,20"
-                BackgroundColor="White"
+                BackgroundColor="LightGray"
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
                 <Image 
-                    Source=""
+                    x:Name="imagenUsuario"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="CenterAndExpand" />
+                <Entry 
+                    x:Name="entryNombre"
+                    Placeholder="Introduce tu usuario"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" />
+                <Button
+                    x:Name="enviarNombre"
+                    Text="Enviar"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="CenterAndExpand" />
+                <Label
+                    x:Name="registro"
+                    TextColor="Blue"
+                    Text="Registrarse"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <StackLayout
+                x:Name="layoutPass"
+                Padding="20,20,20,20"
+                BackgroundColor="LightGray"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                IsVisible="False">
+                <Entry 
+                    x:Name="entryPass"
+                    Placeholder="Introduce tu contraseña"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"
+                    IsPassword="True"/>
+                <Button
+                    x:Name="enviarPass"
+                    Text="Enviar"
                     VerticalOptions="Start" 
                     HorizontalOptions="CenterAndExpand" />
             </StackLayout>

@@ -26,3 +26,4 @@ C:\Users\AlumnoTarde\source\repos\ClienteEnlaza\ClienteEnlaza\ClienteEnlaza\bin\
 C:\Users\AlumnoTarde\source\repos\ClienteEnlaza\ClienteEnlaza\ClienteEnlaza\obj\Release\ClienteEnlaza.dll
 C:\Users\AlumnoTarde\source\repos\ClienteEnlaza\ClienteEnlaza\ClienteEnlaza\obj\Release\ClienteEnlaza.pdb
 C:\Users\AlumnoTarde\source\repos\ClienteEnlaza\ClienteEnlaza\ClienteEnlaza\obj\Release\ClienteEnlaza.Login.xaml.g.cs
+C:\Users\AlumnoTarde\source\repos\ClienteEnlaza\ClienteEnlaza\ClienteEnlaza\obj\Release\ClienteEnlaza.Registro.xaml.g.cs

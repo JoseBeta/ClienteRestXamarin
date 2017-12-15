@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClienteEnlaza.Registro">
+    <ContentPage.Content>
+        <Grid 
+            x:Name="grid"
+            BackgroundColor="DeepSkyBlue">
+            <StackLayout 
+                x:Name="layoutRegistro"
+                Padding="20,20,20,20"
+                BackgroundColor="LightGray"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+                <Label
+                    Text="¡Bienvenido!"
+                    FontSize="Large"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="CenterAndExpand"/>
+                <Entry
+                    x:Name="nombre"
+                    Placeholder="Nombre de usuario"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="FillAndExpand" />
+                <DatePicker
+                    x:Name="fNacimiento"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="FillAndExpand" />
+                <Entry
+                    x:Name="pass"
+                    Placeholder="Introduzca la contraseña"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="FillAndExpand" 
+                    IsPassword="True"/>
+                <Entry
+                    x:Name="repetirPass"
+                    Placeholder="Repita la contraseña"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="FillAndExpand" 
+                    IsPassword="True"/>
+                <Button
+                    x:Name="enviarRegistro"
+                    Text="Enviar"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
