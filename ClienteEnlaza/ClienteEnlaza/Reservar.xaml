@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClienteEnlaza.Reservar">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid 
+            x:Name="grid"
+            BackgroundColor="DeepSkyBlue">
+                <StackLayout 
+                    x:Name="layoutReservar"
+                    Padding="20,20,20,20"
+                    BackgroundColor="LightGray"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                    <Picker x:Name="pickerOrigen" Title="Origen" WidthRequest="200">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Gran Canaria</x:String>
+                                <x:String>Madrid</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Picker x:Name="pickerDestino" Title="Destino" WidthRequest="200">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Gran Canaria</x:String>
+                                <x:String>Madrid</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry 
+                    x:Name="entryViajero"
+                    Keyboard="Numeric"/>
+                    <Button
+                    x:Name="enviarReserva"
+                    Text="Enviar"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout 
+                    x:Name="layoutViajero"
+                    Padding="20,20,20,20"
+                    BackgroundColor="LightGray"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    IsVisible="False">
+                    <Entry
+                    x:Name="entryNombre"
+                    Placeholder="Nombre del viajero"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="FillAndExpand" />
+                    <DatePicker
+                    x:Name="fNacimiento"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="FillAndExpand" />
+                    <Entry
+                    x:Name="entryDni"
+                    Placeholder="Introduzca el dni"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="FillAndExpand"/>
+                    <Button
+                    x:Name="enviarViajero"
+                    Text="Enviar"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

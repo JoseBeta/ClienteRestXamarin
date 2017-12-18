@@ -13,7 +13,7 @@ namespace ClienteEnlaza
     public partial class Reserva : ContentPage
     {
         public int Id { get; set; }
-        public float PrecioParagado { get; set; }
+        public float PrecioPagado { get; set; }
         public Vuelo Vuelo { get; set; }
         public List<Viajero> Viajeros { get; set; }
         public Reserva()

@@ -31,5 +31,11 @@ namespace ClienteEnlaza
 
             var response = await client.PostAsync("http://192.168.202.66:8084/API-HM2/webresources/usuario/registro/", content);
         }
+
+        public static async Task<List<Vuelo>> getVuelosAsync(string Origen, string Destino) {
+            var response = await client.GetStringAsync("http://192.168.202.66:8084/API-HM2/webresources/buscar/listar/"+Origen+"/"+Destino);
+            var vuelos = JsonConvert.DeserializeObject<List<Vuelo>>(response);
+            return vuelos;
+        }
     }
 }

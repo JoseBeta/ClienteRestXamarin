@@ -23,6 +23,7 @@ namespace ClienteEnlaza
             enviarRegistro.Clicked += EnviarRegistro_Clicked;
         }
 
+
         private void EnviarRegistro_Clicked(object sender, EventArgs e)
         {
             registrarUsuario();
@@ -32,12 +33,8 @@ namespace ClienteEnlaza
         {
             if (validar()) {
                 await ServicioDeDatoscs.Registro(nombre.Text, pass.Text, fNacimiento.Date.ToString("yyyy-MM-dd"));
-                DisplayAlert("1", "", "OK");
                 App.usuarioLogeado = await ServicioDeDatoscs.GetUsuarioAsync(nombre.Text, pass.Text);
-                DisplayAlert("2", "", "OK");
-                Usuario iduser = (Usuario) App.usuarioLogeado;
-
-                layoutRegistro.Children.Add(new Label { Text = iduser.Id.ToString() });
+                Navigation.PushAsync(new Reservar());
             }
         }
 

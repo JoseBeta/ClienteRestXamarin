@@ -12,14 +12,20 @@ namespace ClienteEnlaza
         public MainPage()
         {
             InitializeComponent();
-
-            boton.Clicked += Boton_Clicked;
         }
 
-        private async void Boton_Clicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            await Navigation.PushAsync(new Login());
+            base.OnAppearing();
+
+            Esperar();
         }
 
+        private async Task Esperar()
+        {
+            logo.Source = ImageSource.FromResource("ClienteEnlaza.img.logo.png");
+            await Task.Delay(3000);
+            Navigation.PushAsync(new Login());
+        }
     }
 }

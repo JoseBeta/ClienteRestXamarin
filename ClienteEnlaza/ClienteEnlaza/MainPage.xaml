@@ -4,17 +4,20 @@
              xmlns:local="clr-namespace:ClienteEnlaza"
              x:Class="ClienteEnlaza.MainPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label 
-                x:Name="texto"
-                Text=""
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button 
-                x:Name="boton"
-                Text="enviar"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid
+            x:Name="grid"
+            BackgroundColor="DeepSkyBlue">
+            <StackLayout
+                x:Name="layoutMain"
+                Padding="20,20,20,20"
+                BackgroundColor="LightGray"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+                <Image 
+                    x:Name="logo"
+                    VerticalOptions="StartAndExpand" 
+                    HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

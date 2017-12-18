@@ -54,10 +54,12 @@ namespace ClienteEnlaza
             string resultado = await ServicioDeDatoscs.GetAuthAsync(nombre, pass);
             if (resultado.Equals("1"))
             {
-                await Navigation.PushAsync(new Vuelo());
+                App.usuarioLogeado = await ServicioDeDatoscs.GetUsuarioAsync(nombre, pass);
+                Navigation.PushAsync(new Reservar());
             }
             else {
-                await Navigation.PushAsync(new Usuario());
+                DisplayAlert("Usuario incorrecto", "Intentelo de nuevo", "OK");
+                layoutNombre.IsVisible = true;
             }
         }
     }
