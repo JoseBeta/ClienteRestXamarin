@@ -13,9 +13,11 @@ namespace ClienteEnlaza
     public partial class Vuelo : ContentPage
     {
         public int Id { get; set; }
+        public DateTime Fecha { get; set; }
         public Aeropuerto Aerpouerto1 { get; set; }
         public Aeropuerto Aeropuerto2 { get; set; }
         public float Precio { get; set; }
+        public bool Selected { get; internal set; }
 
         public Vuelo()
         {

@@ -29,41 +29,31 @@
                             </x:Array>
                         </Picker.ItemsSource>
                     </Picker>
-                    <Entry 
-                    x:Name="entryViajero"
-                    Keyboard="Numeric"/>
                     <Button
                     x:Name="enviarReserva"
                     Text="Enviar"
                     VerticalOptions="Start" 
                     HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
-                <StackLayout 
-                    x:Name="layoutViajero"
+                <StackLayout
+                    x:Name="layoutVuelo"
                     Padding="20,20,20,20"
                     BackgroundColor="LightGray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     IsVisible="False">
-                    <Entry
-                    x:Name="entryNombre"
-                    Placeholder="Nombre del viajero"
-                    VerticalOptions="Start" 
-                    HorizontalOptions="FillAndExpand" />
-                    <DatePicker
-                    x:Name="fNacimiento"
-                    VerticalOptions="Start" 
-                    HorizontalOptions="FillAndExpand" />
-                    <Entry
-                    x:Name="entryDni"
-                    Placeholder="Introduzca el dni"
-                    VerticalOptions="Start" 
-                    HorizontalOptions="FillAndExpand"/>
+                    <ListView x:Name="vuelosView">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding Fecha}" TextColor="Black" Detail="{Binding Precio}" DetailColor="ForestGreen" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                     <Button
-                    x:Name="enviarViajero"
-                    Text="Enviar"
-                    VerticalOptions="Start" 
-                    HorizontalOptions="FillAndExpand"/>
+                            x:Name="enviarVuelo"
+                            Text="Enviar"
+                            VerticalOptions="Start" 
+                            HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
             </Grid>
         </ScrollView>

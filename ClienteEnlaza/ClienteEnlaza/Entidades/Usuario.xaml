@@ -3,10 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ClienteEnlaza.Usuario">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Usuario"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid 
+            x:Name="grid"
+            BackgroundColor="DeepSkyBlue">
+            <StackLayout
+                    x:Name="layoutReservas"
+                    Padding="20,20,20,20"
+                    BackgroundColor="LightGray"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                <Button
+                            x:Name="borrar"
+                            Text="Borrar"
+                            VerticalOptions="Start" 
+                            HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -33,8 +33,11 @@ namespace ClienteEnlaza
         {
             if (validar()) {
                 await ServicioDeDatoscs.Registro(nombre.Text, pass.Text, fNacimiento.Date.ToString("yyyy-MM-dd"));
+                App.nombre = nombre.Text;
+                App.pass = pass.Text;
                 App.usuarioLogeado = await ServicioDeDatoscs.GetUsuarioAsync(nombre.Text, pass.Text);
-                Navigation.PushAsync(new Reservar());
+                Usuario user =(Usuario) App.usuarioLogeado;
+                Navigation.PushAsync(user);
             }
         }
 

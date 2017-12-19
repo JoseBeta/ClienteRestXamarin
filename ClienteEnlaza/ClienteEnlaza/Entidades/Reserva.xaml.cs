@@ -16,6 +16,8 @@ namespace ClienteEnlaza
         public float PrecioPagado { get; set; }
         public Vuelo Vuelo { get; set; }
         public List<Viajero> Viajeros { get; set; }
+        public bool Selected { get; internal set; }
+
         public Reserva()
         {
             InitializeComponent();

@@ -37,5 +37,32 @@ namespace ClienteEnlaza
             var vuelos = JsonConvert.DeserializeObject<List<Vuelo>>(response);
             return vuelos;
         }
+
+        public static async Task Reservar(Vuelo vuelo)
+        {
+            Usuario user = (Usuario)App.usuarioLogeado;
+            var content = new StringContent("{ \"vuelo\": { \"id\":\"" + vuelo.Id + "\",\"precio\":\"" + vuelo.Precio + "\"}, \"usuario\": {\"id\":\"" + user.Id+"\"}}", Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("http://192.168.202.66:8084/API-HM2/webresources/reservar/reserva/", content);
+        }
+
+        public static async Task BorrarUsuario()
+        {
+            Usuario User = (Usuario) App.usuarioLogeado;
+            var uri = new Uri("http://192.168.202.66:8084/API-HM2/webresources/usuario/borrar/" + User.Id);
+
+            var response = await client.DeleteAsync(uri);
+
+        }
+
+        //public async Task UpdatePasswdItemAsync()
+        //{
+
+        //    string comilla = "\"";
+        //    var uri = new Uri(App.ip + "modificar/" + Login.Id);
+        //    var content = new StringContent("{" + comilla + "passwd" + comilla + ":" + comilla + newpasswd.Text.ToLower() + comilla + "}", Encoding.UTF8, "application/json");
+        //    var response = await client.PutAsync(uri, content);
+
+        //}
     }
 }

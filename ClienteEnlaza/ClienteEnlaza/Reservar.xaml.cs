@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,23 +14,46 @@ namespace ClienteEnlaza
     public partial class Reservar : ContentPage
     {
         private Reserva reserva = new Reserva();
-        private int numViajeros;
-        private int cont = 0;
+        private int cont;
         private string origen;
         private string destino;
         List<Vuelo> vuelos = new List<Vuelo>();
+        Vuelo vueloSeleccionado = new Vuelo();
 
         public Reservar()
         {
             InitializeComponent();
+
+            cont = 0;
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            enviarViajero.Clicked += EnviarViajero_Clicked;
             enviarReserva.Clicked += EnviarReserva_Clicked;
+            enviarVuelo.Clicked += EnviarVuelo_Clicked;
+        }
+
+        private void EnviarVuelo_Clicked(object sender, EventArgs e)
+        {
+            if (vueloSeleccionado != null)
+            {
+                Reservando();
+                layoutVuelo.IsVisible = false;
+            }
+            else {
+                DisplayAlert("Vuelo no seleccionado","Debe seleccionar un vuelo para continuar","OK");
+            }
+        }
+
+        public async Task Reservando()
+        {
+            await ServicioDeDatoscs.Reservar(vueloSeleccionado);
+            App.usuarioLogeado = await ServicioDeDatoscs.GetUsuarioAsync(App.nombre, App.pass);
+            Usuario user = (Usuario) App.usuarioLogeado;
+
+            Navigation.PushAsync(user);
         }
 
         private void EnviarReserva_Clicked(object sender, EventArgs e)
@@ -40,16 +64,7 @@ namespace ClienteEnlaza
                 if (pickerDestino.SelectedIndex >= 0)
                 {
                     destino = pickerDestino.SelectedItem.ToString();
-                    if (!String.IsNullOrEmpty(entryViajero.Text) || !String.IsNullOrWhiteSpace(entryViajero.Text))
-                    {
-                        numViajeros = Convert.ToInt32(entryViajero.Text);
-                        layoutReservar.IsVisible = false;
-                        layoutViajero.IsVisible = true;
-                    }
-                    else
-                    {
-                        DisplayAlert("Error numero de viajeros", "El numero de viajeros no puede esta vacior", "OK");
-                    }
+                        encontrarVuelos();
                 }
                 else
                 {
@@ -61,51 +76,41 @@ namespace ClienteEnlaza
             }
         }
 
+
         private async Task encontrarVuelos() {
-            vuelos = await ServicioDeDatoscs.getVuelosAsync(origen, destino);
-            layoutViajero.Children.Add(new Label { Text = vuelos.Count().ToString() });
-        }
-
-        private void EnviarViajero_Clicked(object sender, EventArgs e)
-        {
-            guardarViajeros();
-        }
-
-        private async Task guardarViajeros() {
-
-            if (cont < numViajeros)
+            try
             {
-                reserva.Viajeros.Add(new Viajero());
-                cont++;
-            }
-            else {
-                Navigation.PushAsync(new MainPage());
-            }
-        }
+                vuelos = await ServicioDeDatoscs.getVuelosAsync(origen, destino);
+                vuelosView.ItemsSource = vuelos;
+                layoutReservar.IsVisible = false;
+                layoutVuelo.IsVisible = true;
 
-        private Viajero NuevoViajero()
-        {
-            Viajero viajero = new Viajero();
-            if (!String.IsNullOrWhiteSpace(entryNombre.Text) || !String.IsNullOrEmpty(entryNombre.Text))
-            {
-                if (!String.IsNullOrWhiteSpace(entryDni.Text) || !String.IsNullOrEmpty(entryDni.Text))
-                {
-                    viajero.Nombre = entryNombre.Text;
-                    if (entryDni.Text.Length == 9)
-                    {
-                            viajero.Dni = entryDni.Text;
-                    }
-                    else {
-                        DisplayAlert("Error en el dni", "El dni introducido no es valido", "OK");
-                        return null;
-                    }
-                    viajero.FNacimiento = fNacimiento.Date.ToString("yyyy-MM-dd");
-                    return viajero;
-                }
-            }
+                  vuelosView.ItemSelected += async (sender, e) => {
 
-            DisplayAlert("Viajero no valido", "Los campos de viajero no pueden estar vacios", "OK");
-            return null;
+                    if (e.SelectedItem == null) return; // don't do anything if we just de-selected the row
+
+                    vueloSeleccionado.Id = (e.SelectedItem as Vuelo).Id;
+                    vueloSeleccionado.Precio = (e.SelectedItem as Vuelo).Precio;
+
+                      // Search the current (last) selected item
+
+                      int lastIdx = vuelos.FindIndex(o => o.Selected == true);
+
+                    if (lastIdx >= 0)
+                        vuelos[lastIdx].Selected = false; // De-select the last selected because now I have another selected item
+
+                    // Search on your list the selectedItem
+                    int idx = vuelos.FindIndex(o => o.Fecha == (e.SelectedItem as Vuelo).Fecha);
+
+                    // Set "Selected" to selected item
+                    vuelos[idx].Selected = true;
+
+                    ((ListView)sender).SelectedItem = null; // de-select the row
+                };
+            }
+            catch {
+                DisplayAlert("Error de conexion", "Intentelo de nuevo. Si el problema persiste contacte con nuetros sevicio técnico", "OK");
+            }
         }
     }
 }

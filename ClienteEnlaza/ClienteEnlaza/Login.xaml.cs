@@ -36,6 +36,7 @@ namespace ClienteEnlaza
         {
             if (entryPass.Text != null && !entryPass.Text.Equals("")) {
                 pass = entryPass.Text;
+                App.pass = entryPass.Text;
                 layoutPass.IsVisible = false;
                 comprobarUsuario();
             }
@@ -47,6 +48,7 @@ namespace ClienteEnlaza
                 layoutNombre.IsVisible = false;
                 layoutPass.IsVisible = true;
                 nombre = entryNombre.Text;
+                App.nombre = entryNombre.Text;
             }
         }
 
@@ -55,7 +57,8 @@ namespace ClienteEnlaza
             if (resultado.Equals("1"))
             {
                 App.usuarioLogeado = await ServicioDeDatoscs.GetUsuarioAsync(nombre, pass);
-                Navigation.PushAsync(new Reservar());
+                Usuario user = (Usuario) App.usuarioLogeado;
+                Navigation.PushAsync(user);
             }
             else {
                 DisplayAlert("Usuario incorrecto", "Intentelo de nuevo", "OK");

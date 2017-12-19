@@ -10,6 +10,8 @@ namespace ClienteEnlaza
     public partial class App : Application
     {
         internal static object usuarioLogeado;
+        public static string nombre;
+        public static string pass;
 
         public App()
         {
