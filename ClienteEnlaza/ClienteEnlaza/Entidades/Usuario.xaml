@@ -20,7 +20,8 @@
 
                 <Entry
                     x:Name="nuevoPass"
-                    Placeholder="Nueva contraseña"/>
+                    Placeholder="Nueva contraseña"
+                    IsPassword="True"/>
 
                 <Button
                     x:Name="butonPass"
@@ -29,6 +30,11 @@
                 <Button
                             x:Name="borrar"
                             Text="Borrar"
+                            VerticalOptions="Start" 
+                            HorizontalOptions="FillAndExpand"/>
+                <Button
+                            x:Name="botonTrash"
+                            Text="Parte sin acabar"
                             VerticalOptions="Start" 
                             HorizontalOptions="FillAndExpand"/>
             </StackLayout>

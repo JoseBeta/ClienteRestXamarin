@@ -64,7 +64,7 @@ namespace ClienteEnlaza
                 if (pickerDestino.SelectedIndex >= 0)
                 {
                     destino = pickerDestino.SelectedItem.ToString();
-                        encontrarVuelos();
+                    encontrarVuelos();
                 }
                 else
                 {
@@ -80,6 +80,7 @@ namespace ClienteEnlaza
         private async Task encontrarVuelos() {
             try
             {
+                await ServicioDeDatoscs.buscar(origen, destino);
                 vuelos = await ServicioDeDatoscs.getVuelosAsync(origen, destino);
                 vuelosView.ItemsSource = vuelos;
                 layoutReservar.IsVisible = false;

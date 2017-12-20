@@ -26,6 +26,12 @@ namespace ClienteEnlaza
             labelPass.Text = "Contraseña: " + App.pass;
             borrar.Clicked += Borrar_Clicked;
             butonPass.Clicked += ButonPass_Clicked;
+            botonTrash.Clicked += BotonTrash_Clicked;
+        }
+
+        private void BotonTrash_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Reservar());
         }
 
         private void ButonPass_Clicked(object sender, EventArgs e)
