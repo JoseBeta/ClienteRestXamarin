@@ -7,11 +7,25 @@
             x:Name="grid"
             BackgroundColor="DeepSkyBlue">
             <StackLayout
-                    x:Name="layoutReservas"
+                    x:Name="layoutUsuario"
                     Padding="20,20,20,20"
                     BackgroundColor="LightGray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center">
+                <Label
+                    x:Name="labelNombre"
+                    Text=""/>
+                <Label x:Name="labelPass"
+                       Text=""/>
+
+                <Entry
+                    x:Name="nuevoPass"
+                    Placeholder="Nueva contraseña"/>
+
+                <Button
+                    x:Name="butonPass"
+                    Text="cambiar contraseña"/>
+                
                 <Button
                             x:Name="borrar"
                             Text="Borrar"

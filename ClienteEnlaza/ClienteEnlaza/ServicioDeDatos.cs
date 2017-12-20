@@ -55,14 +55,13 @@ namespace ClienteEnlaza
 
         }
 
-        //public async Task UpdatePasswdItemAsync()
-        //{
+        public static async Task cambiarContrasena(string pass)
+        {
+            Usuario user = (Usuario)App.usuarioLogeado;
+            var uri = new Uri("http://192.168.202.66:8084/API-HM2/webresources/usuario/modificar/");
+            var content = new StringContent("{\"id\":\""+user.Id+"\",\"nombre\":\""+user.Nombre+"\",\"FNacimiento\":\""+user.FNacimiento + "\",\"contrasena\":\"" + pass+"\"}", Encoding.UTF8, "application/json");
+            var response = await client.PutAsync(uri, content);
 
-        //    string comilla = "\"";
-        //    var uri = new Uri(App.ip + "modificar/" + Login.Id);
-        //    var content = new StringContent("{" + comilla + "passwd" + comilla + ":" + comilla + newpasswd.Text.ToLower() + comilla + "}", Encoding.UTF8, "application/json");
-        //    var response = await client.PutAsync(uri, content);
-
-        //}
+        }
     }
 }
